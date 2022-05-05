@@ -40,9 +40,14 @@ public class UserController {
 
         User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User not found for this id ::" + userId));
 
-        user.setFirstName(userDetails.getFirstName());
-        user.setLastName(userDetails.getLastName());
-        user.setEmail(userDetails.getEmail());
+        if (userDetails.getFirstName() != null)
+            user.setFirstName(userDetails.getFirstName());
+
+        if (userDetails.getLastName() != null)
+            user.setLastName(userDetails.getLastName());
+
+        if (userDetails.getEmail() != null)
+            user.setEmail(userDetails.getEmail());
 
         return ResponseEntity.ok(this.userRepository.save(user));
     }
