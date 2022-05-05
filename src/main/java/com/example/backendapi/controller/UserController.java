@@ -49,6 +49,9 @@ public class UserController {
         if (userDetails.getEmail() != null)
             user.setEmail(userDetails.getEmail());
 
+        if (userDetails.getPhoneNumber() != null)
+            user.setPhoneNumber(user.getPhoneNumber());
+
         return ResponseEntity.ok(this.userRepository.save(user));
     }
 

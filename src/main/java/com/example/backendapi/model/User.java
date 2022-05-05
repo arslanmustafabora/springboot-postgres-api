@@ -36,5 +36,8 @@ public class User {
     @Column(name = "email")
     private String email;
 
-
+    @Getter
+    @Setter
+    @Column(name = "phone_number")
+    private String phoneNumber;
 }
